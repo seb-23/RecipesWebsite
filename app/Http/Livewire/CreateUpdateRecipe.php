@@ -35,7 +35,7 @@ class CreateUpdateRecipe extends Component
     public function update()
     {
         $this->recipe->update($this->validate());
-        return redirect()->route('recipes.user-index');
+        return redirect()->route('recipes.index');
     }
 
     public function create()
@@ -44,7 +44,7 @@ class CreateUpdateRecipe extends Component
         $validated['user_id'] = Auth::id();
         Recipe::create($validated);
 
-        return redirect()->route('recipes.user-index');
+        return redirect()->route('recipes.index');
     }
 
     public function render()

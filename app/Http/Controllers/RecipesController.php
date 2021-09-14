@@ -12,9 +12,7 @@ class RecipesController extends Controller
 
     public function index()
     {
-        $recipes = Recipe::latest()->get();
-
-        return view('recipes.index', ['recipes' => $recipes]);
+        return view('recipes.index', ['recipes' => Auth::user()->recipes]);
     }
 
     public function create()
@@ -32,13 +30,17 @@ class RecipesController extends Controller
         return view('recipes.create-or-update', ['recipe' => $recipe, 'formAction' => 'update']);
     }
 
-    public function userIndex()
+    public function public()
     {
-        return view('recipes.user-index', ['recipes' => Auth::user()->recipes]);
+        $recipes = Recipe::latest()->get();
+
+        return view('recipes.public', ['recipes' => $recipes]);
     }
 
     public function destroy(Recipe $recipe)
     {
-        //
+        $recipe->delete();
+
+        return redirect()->route('recipes.index');
     }
 }
