@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -6,11 +6,11 @@
             @forelse($recipes as $recipe)
                 <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
                     <div class="flex-1 flex flex-col p-8">
-                        <img class="w-32 h-32 flex-shrink-0 mx-auto rounded-full" src="{{$recipe->img_url}} ? {{$recipe->img_url}} : {{asset('/images/default-v1.jpeg')}}" alt="">
+                        <img class="w-32 h-32 flex-shrink-0 mx-auto rounded-full" src="{{$recipe->img_url ?  : asset('/images/default-v1.jpeg')}}" alt="">
                         <h3 class="mt-6 text-gray-900 text-sm font-medium">{{$recipe->title}}</h3>
                         <dl class="mt-1 flex-grow flex flex-col justify-between">
                             <dt class="sr-only">Instructions</dt>
-                            <dd class="text-gray-500 text-sm">{{substr($recipe->instructions, 0, 75)}}</dd>
+                            <dd class="text-gray-500 text-sm">{{substr($recipe->instructions, 0, 75)}}...</dd>
                         </dl>
                     </div>
                     <div>
@@ -25,7 +25,7 @@
                                 </a>
                             </div>
                             <div class="-ml-px w-0 flex-1 flex">
-                                <a href="{{route('recipes.show', $recipe)}}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+                                <a href="{{route('recipes.show-restricted', $recipe)}}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
                                     <!-- Heroicon name: solid/view -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
