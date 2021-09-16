@@ -22,6 +22,11 @@ class RecipesController extends Controller
 
     public function show(Recipe $recipe)
     {
+        return view('recipes.show', ['recipe' => $recipe, 'actions' => true]);
+    }
+
+    public function showRestricted(Recipe $recipe)
+    {
         return view('recipes.show', ['recipe' => $recipe]);
     }
 
@@ -32,7 +37,7 @@ class RecipesController extends Controller
 
     public function public()
     {
-        $recipes = Recipe::latest()->get();
+        $recipes = isset($_GET['search']) ? $this->search()  : Recipe::latest()->get();
 
         return view('recipes.public', ['recipes' => $recipes]);
     }
@@ -42,5 +47,11 @@ class RecipesController extends Controller
         $recipe->delete();
 
         return redirect()->route('recipes.index');
+    }
+
+    public function search()
+    {
+        $search_text = $_GET['search'];
+        return Recipe::where('title', 'LIKE', '%'.$search_text.'%')->get();
     }
 }
