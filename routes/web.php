@@ -33,7 +33,8 @@ Route::get('/members', function () {
     return view('members');
 })->middleware(['auth'])->name('members');
 
-Route::get('/recipes/public','App\Http\Controllers\RecipesController@public')->name('recipes.public');
+Route::get('/public/recipes','App\Http\Controllers\RecipesController@public')->name('recipes.public');
+Route::get('/public/recipes/{recipe}','App\Http\Controllers\RecipesController@showRestricted')->name('recipes.show-restricted');
 Route::resource('recipes', 'App\Http\Controllers\RecipesController')->middleware(['auth']);
 
 require __DIR__.'/auth.php';

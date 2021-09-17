@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if($formAction == 'update')
                 <livewire:create-update-recipe :recipe="$recipe" :instructions="$recipe->instructions" :ingredients="$recipe->ingredients"
-                                               :notes="$recipe->notes" :title="$recipe->title" :img_url="$recipe->img_url" :formAction="$formAction" />
+                                               :notes="$recipe->notes" :title="$recipe->title" :formAction="$formAction" />
             @else
                 <livewire:create-update-recipe :formAction="$formAction" />
             @endif

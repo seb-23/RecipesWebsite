@@ -4,6 +4,11 @@
         <div class="flex justify-between h-16">
             <div class="flex">
 
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <x-jet-application-logo class="block h-12 w-auto" />
+                </div>
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('/') }}" :active="request()->routeIs('/')">
@@ -19,13 +24,6 @@
 
             </div>
 
-            <!-- Logo -->
-            <div class="flex-shrink-0 flex items-center">
-                <a href="{{ route('/') }}">
-                    <x-jet-application-logo class="block h-12 w-auto" />
-                </a>
-            </div>
-
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @if (Route::has('login'))
                     @auth
@@ -38,22 +36,24 @@
                         </div>
 
                     @else
-                        <div class="hidden md:flex items-center justify-end space-x-2 md:flex-1 lg:w-0">
-
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')" class="rounded-md border text-gray-500 hover:bg-gray-700 hover:text-gray-100">
-                                    {{ __('Sign in') }}
-                                </x-nav-link>
-                            </div>
-
-                            @if (Route::has('register'))
+                        <div class="ml-3 relative">
+                            <div class="hidden md:flex items-center justify-end space-x-2 md:flex-1 lg:w-0">
 
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')" class="rounded-md border text-purple-600 hover:bg-purple-200">
-                                        {{ __('Sign up') }}
+                                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')" class="rounded-md border text-gray-500 hover:bg-gray-700 hover:text-gray-100">
+                                        {{ __('Sign in') }}
                                     </x-nav-link>
                                 </div>
-                            @endif
+
+                                @if (Route::has('register'))
+
+                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                        <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')" class="rounded-md border text-purple-600 hover:bg-purple-200">
+                                            {{ __('Sign up') }}
+                                        </x-nav-link>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     @endauth
                 @endif

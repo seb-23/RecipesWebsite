@@ -5,9 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('/') }}">
-                        <x-jet-application-logo class="block h-12 w-auto" />
-                    </a>
+                    <x-jet-application-logo class="block h-12 w-auto" />
                 </div>
 
                 <!-- Navigation Links -->
