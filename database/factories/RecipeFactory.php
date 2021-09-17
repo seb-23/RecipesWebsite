@@ -28,7 +28,7 @@ class RecipeFactory extends Factory
             'ingredients' => $this->faker->paragraph,
             'instructions' => $this->faker->paragraph,
             'notes' => $this->faker->paragraph,
-            'img_url' => $this->faker->imageUrl(240, 180, 'food'),
+            'photo' => $this->faker->imageUrl(480, 360, 'food'),
         ];
     }
 }
