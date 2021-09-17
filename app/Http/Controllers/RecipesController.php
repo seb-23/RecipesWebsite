@@ -12,7 +12,9 @@ class RecipesController extends Controller
 
     public function index()
     {
-        return view('recipes.index', ['recipes' => Auth::user()->recipes]);
+        $recipes = isset($_GET['search']) ? $this->searchUser()  : Auth::user()->recipes;
+
+        return view('recipes.index', ['recipes' => $recipes]);
     }
 
     public function create()
@@ -22,6 +24,7 @@ class RecipesController extends Controller
 
     public function show(Recipe $recipe)
     {
+        $this->forbidden($recipe);
         return view('recipes.show', ['recipe' => $recipe, 'actions' => true]);
     }
 
@@ -32,6 +35,7 @@ class RecipesController extends Controller
 
     public function edit(Recipe $recipe)
     {
+        $this->forbidden($recipe);
         return view('recipes.create-or-update', ['recipe' => $recipe, 'formAction' => 'update']);
     }
 
@@ -49,9 +53,24 @@ class RecipesController extends Controller
         return redirect()->route('recipes.index');
     }
 
-    public function search()
+    private function search()
     {
         $search_text = $_GET['search'];
         return Recipe::where('title', 'LIKE', '%'.$search_text.'%')->get();
+    }
+
+    private function searchUser()
+    {
+        $search_text = $_GET['search'];
+        return Recipe::where('user_id', Auth::id())
+            ->where('title', 'LIKE', '%'.$search_text.'%')
+            ->get();
+    }
+
+    private function forbidden(Recipe $recipe)
+    {
+        if ($recipe->user_id != Auth::id()) {
+            abort('403');
+        }
     }
 }

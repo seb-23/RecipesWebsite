@@ -20,6 +20,7 @@ Make sure you have composer downloaded and a database (e.g. TablePlus) for the m
 * run `composer install; npm install; npm run dev`
 * run `php artisan key:generate`
 * run `php artisan migrate:fresh --seed`
+* run `php artisan storage:link`
 * run `php artisan serve`
   * or if you have valet services
   * run `valet park; valet link; valet secure; valet links`

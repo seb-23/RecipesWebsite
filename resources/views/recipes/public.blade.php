@@ -5,10 +5,13 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @include('recipes.card-recipe-display',['recipes' => $recipes])
-            {{--            <x-display-recipes :recipes="$recipes" />--}}
+    <form>
+        <div class="relative flex-1 px-2 pt-6 flex items-center justify-center">
+            <x-search-bar />
         </div>
-    </div>
+    </form>
+
+        @include('recipes.card-recipe-display',['recipes' => $recipes])
+        {{--            <x-display-recipes :recipes="$recipes" />--}}
+
 </x-front-layout>

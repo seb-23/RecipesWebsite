@@ -20,7 +20,7 @@ class CreateRecipesTable extends Migration
             $table->longText('ingredients');
             $table->longText('instructions');
             $table->longText('notes');
-            $table->string('img_url')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

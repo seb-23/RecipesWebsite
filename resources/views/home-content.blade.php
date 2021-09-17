@@ -80,9 +80,7 @@
     <div class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">
         &copy;2021 Sebastian. All rights reserved.
         <div class="pt-4 md:p-0 text-center md:text-right text-xs">
-            <a href="#" class="text-black no-underline hover:underline">Privacy Policy</a>
-            <a href="#" class="text-black no-underline hover:underline ml-4">Terms &amp; Conditions</a>
-            <a href="#" class="text-black no-underline hover:underline ml-4">Contact Us</a>
+            <a href="#" class="text-black no-underline hover:underline">Top of Screen</a>
         </div>
     </div>
 </footer>
