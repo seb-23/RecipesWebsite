@@ -1,4 +1,6 @@
-![Logo](public/images/chef-hat.jpeg)
+<p align="center">
+  <img width="460" height="300" src="public/images/chef-hat.jpeg">
+</p>
 
 ## Sebastian's Recipes
 
