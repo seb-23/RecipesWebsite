@@ -19,34 +19,7 @@ Make sure you have composer downloaded and a database (e.g. TablePlus) for the m
 * run `php artisan serve`
   * or if you have valet services
   * run `valet park; valet link; valet secure; valet links`
-  
-## For More Beautiful Migration Images
 
-Copy & Past the code below into this file `vendor/fakerphp/faker/src/Faker/Provider/Image.php`
-
-
-    public static function imageUrl($width = 640, $height = 480, $category = null, $randomize = true, $word = null, $gray = false)
-    {
-        $baseUrl = "https://lorempixel.com/";
-        $url = "{$width}/{$height}/";
-
-        if ($gray) {
-            $url = "gray/" . $url;
-        }
-
-        if ($category) {
-            if (!in_array($category, static::$categories)) {
-                throw new \InvalidArgumentException(sprintf('Unknown image category "%s"', $category));
-            }
-            $url .= "{$category}/";
-            if ($word) {
-                $url .= "{$word}/";
-            }
-        }
-
-        if ($randomize) {
-            $url .= '?' . static::randomNumber(5, true);
-        }
-
-        return $baseUrl . $url;
-    }
+* on the website, you can then log-in using the credentials below:
+  * username: admin@dev.com
+  * password: secret
