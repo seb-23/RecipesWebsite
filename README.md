@@ -2,7 +2,7 @@
   <img width="460" height="300" src="public/images/chef-hat.jpeg">
 </p>
 
-## Sebastian's Recipes
+## Background
 
 This web application is written using the framework Php Laravel. The main components used are Jetstream, Tailwind CSS, Livewire and Javascript. It was implemented using what is known as the Laravel TALL stack which stands for Tailwind, Alpine JS, Livewire and Laravel. The purpose of this web application is to allow registered users to create recipes and allow them to edit, delete and view the recipes they created. It also allows registered users and unregistered guests to view the recipes of all users. 
 
